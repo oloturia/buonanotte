@@ -24,7 +24,6 @@ class goodListener(StreamListener):
 			account = notification["account"]["acct"]
 			content = notification["status"]["content"]
 			goodNight = regex.search(content)
-			print(content)
 			if content.find("dormire") != -1:
 				lang = 'it'
 			elif content.find("dormiria") != -1:
