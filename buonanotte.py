@@ -42,8 +42,13 @@ class goodListener(StreamListener):
 			return
 		try:
 			result = goodNight.group()
+			if (parser.parse(result) < datetime.datetime.now()):
+				delta = 1
+			else:
+				delta = 0
+			datesleep = (datetime.datetime.now()+datetime.timedelta(days=delta)).strftime("%Y/%m/%d")+" "+result
 			with open("schedule.csv","a") as file:
-				row = [result,account,lang]
+				row = [datesleep,account,lang]
 				writer = csv.writer(file)
 				writer.writerow(row)
 			mastodon.toot(greet+account+reminder+result)
@@ -55,7 +60,7 @@ class goodListener(StreamListener):
 			reader = csv.reader(file)
 			sentToBed = []
 			for line,row in enumerate(reader):
-				if parser.parse(row[0]) < datetime.datetime.now():
+				if (parser.parse(row[0]) < datetime.datetime.now()):
 					greet = languages[row[2]][0]
 					goodnight = languages[row[2]][2]
 					mastodon.toot(greet+row[1]+goodnight)
