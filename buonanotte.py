@@ -51,7 +51,7 @@ class goodListener(StreamListener):
 				row = [datesleep,account,lang]
 				writer = csv.writer(file)
 				writer.writerow(row)
-			mastodon.toot(greet+account+reminder+result)
+			mastodon.status_post(greet+accout+reminder+result,visibility="direct")
 		except AttributeError:
 			return
 
@@ -63,7 +63,7 @@ class goodListener(StreamListener):
 				if (parser.parse(row[0]) < datetime.datetime.now()):
 					greet = languages[row[2]][0]
 					goodnight = languages[row[2]][2]
-					mastodon.toot(greet+row[1]+goodnight)
+					mastodon.status_post(greet+row[1]+goodnight,visibility="direct")
 					sentToBed.append(line)
 		if (len(sentToBed) > 0):
 			with open("schedule.csv","r") as file:
