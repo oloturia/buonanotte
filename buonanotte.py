@@ -51,7 +51,7 @@ class goodListener(StreamListener):
 				row = [datesleep,account,lang]
 				writer = csv.writer(file)
 				writer.writerow(row)
-			mastodon.status_post(greet+accout+reminder+result,visibility="direct")
+			mastodon.status_post(greet+account+reminder+result,visibility="direct")
 		except AttributeError:
 			return
 
