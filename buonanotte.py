@@ -7,10 +7,10 @@ import re
 import csv
 
 API_URL = "https://botsin.space"
-regex_h = re.compile("\d+(?=\s(ore|heu|Stu|stu|hor|hou))")
+regex_h = re.compile("\d+(?=\s(ore|ora|heu|Stu|stu|hor|hou))")
 regex_m = re.compile("\d+(?=\s(min|Min))")
 languages = {
-    "it":["Ciao @"," ti ricorderò di andare a dormie fra "," è ora di andare a dormire! Buonanotte!"],
+    "it":["Ciao @"," ti ricorderò di andare a dormre fra "," è ora di andare a dormire! Buonanotte!"],
     "es":["Hola @"," te recordaré que te vayas a dormi en "," es hora de ir a dormir, buenas noches!"],
     "fr":["Salut @"," je vais te rappeler d'aller dormir en "," il est temps de dormir! Bonne nuit!"],
     "pt":["Ola' @"," vou lembrá-lo a dormir em "," é hora de ir dormir! Boa noite!"],
