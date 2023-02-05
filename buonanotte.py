@@ -59,6 +59,7 @@ class goodListener(StreamListener):
 
         if hours_delay == minutes_delay == 0:
             mastodon.status_post("Can't find a valid time")
+            return
 
         datesleep = (datetime.datetime.now()+datetime.timedelta(hours=hours_delay,minutes=minutes_delay)).strftime("%Y/%m/%d %H:%M")
         with open("/mnt/nas/tmp/schedule.csv","a") as file:
